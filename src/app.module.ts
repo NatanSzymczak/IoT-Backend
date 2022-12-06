@@ -8,10 +8,14 @@ import { ReadingsModule } from './readings/readings.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'db.sqlite',
-      synchronize: true,
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: 'admin',
+      database: 'postgres',
       entities: ['**/*.entity.js'],
+      synchronize: true,
     }),
     ReadingsModule,
   ],
