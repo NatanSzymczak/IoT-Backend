@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DataSource } from 'typeorm';
 import { ReadingsModule } from './readings/readings.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
