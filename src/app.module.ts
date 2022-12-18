@@ -18,6 +18,7 @@ import { ReadingsModule } from './readings/readings.module';
       synchronize: true,
     }),
     ReadingsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
