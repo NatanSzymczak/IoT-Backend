@@ -16,3 +16,8 @@ export class ReadingsController {
     return this.readingsService.add();
   }
 }
+
+  @Get('/simulator')
+  deviceSimulator() {
+    return this.readingsService.deviceSimulatorUser5Id();
+  }
