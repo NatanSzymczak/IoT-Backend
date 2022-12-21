@@ -4,6 +4,12 @@ import { User } from 'src/users/users.entity';
 import { Repository } from 'typeorm';
 import { Reading } from './readings.entity';
 
+const hourGenerator = (i) => {
+  const hour = i.toString();
+  hour.length === 1 ? '0'.concat(hour) : hour;
+  return hour;
+};
+
 @Injectable()
 export class ReadingsService {
   constructor(@InjectRepository(Reading) private repo: Repository<Reading>) {}
