@@ -15,9 +15,14 @@ export class ReadingsController {
   addReading(@Body() body: CreateReadingDto) {
     return this.readingsService.add();
   }
-}
+
+  @Get('/generator')
+  generateReadings() {
+    return this.readingsService.generator();
+  }
 
   @Get('/simulator')
   deviceSimulator() {
     return this.readingsService.deviceSimulatorUser5Id();
   }
+}
