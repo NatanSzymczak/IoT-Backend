@@ -13,7 +13,13 @@ export class ReadingsController {
 
   @Post()
   addReading(@Body() body: CreateReadingDto) {
-    return this.readingsService.add();
+    return this.readingsService.add(
+      body.timestamp,
+      body.temperature,
+      body.pressure,
+      body.flow,
+      body.pH,
+    );
   }
 
   @Get('/generator')
