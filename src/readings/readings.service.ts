@@ -38,4 +38,10 @@ export class ReadingsService {
     };
     await setInterval(simulator, 5000);
   }
+
+  async edit(id: number, price: number) {
+    const product = await this.repo.findOne(id);
+    product.price = price;
+    return this.repo.save(product);
+  }
 }
