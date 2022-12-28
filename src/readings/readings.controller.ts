@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ReadingsService } from './readings.service';
 import { CreateReadingDto } from './dtos/create-reading.dto';
 
@@ -9,6 +9,11 @@ export class ReadingsController {
   @Get()
   getReadings() {
     return this.readingsService.getAll();
+  }
+
+  @Get('/:id')
+  getReading(@Param('id') id: string) {
+    return this.readingsService.getById(parseInt(id));
   }
 
   @Post()
