@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { ReadingsService } from './readings.service';
 import { CreateReadingDto } from './dtos/create-reading.dto';
 
@@ -35,5 +43,11 @@ export class ReadingsController {
   @Get('/simulator')
   deviceSimulator() {
     return this.readingsService.deviceSimulatorUser5Id();
+  }
+
+  @Delete('/:id')
+  @HttpCode(204)
+  removeReading(@Param('id') id: string) {
+    this.readingsService.remove(+id);
   }
 }
