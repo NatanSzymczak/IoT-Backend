@@ -20,10 +20,10 @@ export class ReadingsController {
     return this.readingsService.getAll();
   }
 
-  @Get('/:id')
-  getReading(@Param('id') id: string) {
-    return this.readingsService.getById(parseInt(id));
-  }
+  // @Get('/:id')
+  // getReading(@Param('id') id: string) {
+  //   return this.readingsService.getById(parseInt(id));
+  // }
 
   @Post()
   addReading(@Body() body: CreateReadingDto) {
@@ -46,14 +46,14 @@ export class ReadingsController {
     return this.readingsService.deviceSimulatorUser5Id();
   }
 
-  @Delete('/:id')
-  @HttpCode(204)
-  removeReading(@Param('id') id: string) {
-    this.readingsService.remove(+id);
-  }
+  // @Delete('/:id')
+  // @HttpCode(204)
+  // removeReading(@Param('id') id: string) {
+  //   this.readingsService.remove(+id);
+  // }
 
-  @Patch('/:id')
-  editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
-    return this.readingsService.edit(+id, body.price);
-  }
+  // @Patch('/:id')
+  // editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
+  //   return this.readingsService.edit(+id, body.price)
+  // }
 }
