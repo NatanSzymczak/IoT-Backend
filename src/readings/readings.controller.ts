@@ -5,6 +5,7 @@ import {
   Get,
   HttpCode,
   Param,
+  Patch,
   Post,
 } from '@nestjs/common';
 import { ReadingsService } from './readings.service';
@@ -49,5 +50,10 @@ export class ReadingsController {
   @HttpCode(204)
   removeReading(@Param('id') id: string) {
     this.readingsService.remove(+id);
+  }
+
+  @Patch('/:id')
+  editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
+    return this.readingsService.edit(+id, body.price);
   }
 }
