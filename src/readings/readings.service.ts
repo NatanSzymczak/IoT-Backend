@@ -44,4 +44,9 @@ export class ReadingsService {
     product.price = price;
     return this.repo.save(product);
   }
+
+  async remove(id: number) {
+    const product = await this.repo.findOne(id);
+    this.repo.remove(product);
+  }
 }
