@@ -26,7 +26,26 @@ export class ReadingsService {
     });
   }
 
-  async add() {}
+  async generator() {
+    const allDayReadings = [];
+
+    for (let i = 1; i < 5; i++) {
+      const user = new User();
+      user.id = i;
+
+      for (let i = 0; i < 24; i++) {
+        const newReading = new Reading();
+        newReading.user = user;
+        const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
+        newReading.temperature = Math.round(Math.random() * (55 - 45) + 45);
+        newReading.pressure = Math.round(Math.random() * (55 - 45) + 45);
+        newReading.flow = Math.round(Math.random() * (65 - 55) + 55);
+        newReading.pH = +(Math.random() * (7.4 - 6.6) + 6.6).toFixed(1);
+        allDayReadings.push(newReading);
+      }
+    }
+    await this.repo.save(allDayReadings);
+  }
 
   async deviceSimulatorUser5Id() {
     let hour = 0;
