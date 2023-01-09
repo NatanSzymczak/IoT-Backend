@@ -26,6 +26,21 @@ export class ReadingsService {
     });
   }
 
+  async add(
+    timestamp: string,
+    temperature: number,
+    pressure: number,
+    flow: number,
+    pH: number,
+  ) {
+    const newReading = new Reading();
+    newReading.temperature = temperature;
+    newReading.pressure = pressure;
+    newReading.flow = flow;
+    newReading.pH = pH;
+    await this.repo.save(newReading);
+  }
+
   async generator() {
     const allDayReadings = [];
 
