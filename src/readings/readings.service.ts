@@ -18,13 +18,13 @@ export class ReadingsService {
     return this.repo.find();
   }
 
-  getById(id: number) {
-    return this.repo.findOne({
-      where: {
-        id: id,
-      },
-    });
-  }
+  // getById(id: number) {
+  //   return this.repo.findOne({
+  //     where: {
+  //       id: id,
+  //     },
+  //   });
+  // }
 
   async add(
     timestamp: string,
@@ -34,6 +34,7 @@ export class ReadingsService {
     pH: number,
   ) {
     const newReading = new Reading();
+    // newReading.timestamp = timestamp;
     newReading.temperature = temperature;
     newReading.pressure = pressure;
     newReading.flow = flow;
@@ -52,6 +53,8 @@ export class ReadingsService {
         const newReading = new Reading();
         newReading.user = user;
         const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
+        // newReading.timestamp = `2020-12-01 ${i < 10 ? `0${i}` : `${i}`}:30:00`;
+        // newReading.timestamp = `01/12/2022 ${i < 10 ? `0${i}` : `${i}`}:30:00`;
         newReading.temperature = Math.round(Math.random() * (55 - 45) + 45);
         newReading.pressure = Math.round(Math.random() * (55 - 45) + 45);
         newReading.flow = Math.round(Math.random() * (65 - 55) + 55);
@@ -81,14 +84,14 @@ export class ReadingsService {
     await setInterval(simulator, 5000);
   }
 
-  async edit(id: number, price: number) {
-    const product = await this.repo.findOne(id);
-    product.price = price;
-    return this.repo.save(product);
-  }
+  // async edit(id: number, price: number) {
+  //   const product = await this.repo.findOne(id);
+  //   product.price = price;
+  //   return this.repo.save(product);
+  // }
 
-  async remove(id: number) {
-    const product = await this.repo.findOne(id);
-    this.repo.remove(product);
-  }
+  // async remove(id: number) {
+  //   const product = await this.repo.findOne(id);
+  //   this.repo.remove(product);
+  // }
 }
