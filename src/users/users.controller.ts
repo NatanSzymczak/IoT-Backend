@@ -11,6 +11,11 @@ export class UsersController {
     return this.usersService.getAll();
   }
 
+  @Get('/:id')
+  getReading(@Param('id') id: string) {
+    return this.readingsService.getById(parseInt(id));
+  }
+
   @Post()
   addUser(@Body() body: CreateUserDto) {
     return this.usersService.add(body.firstName, body.lastName, body.isActive);
