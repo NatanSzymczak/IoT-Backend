@@ -20,10 +20,10 @@ export class UsersController {
     return this.usersService.getAll();
   }
 
-  @Get('/:id')
-  getReading(@Param('id') id: string) {
-    return this.readingsService.getById(parseInt(id));
-  }
+  // @Get('/:id')
+  // getReading(@Param('id') id: string) {
+  //   return this.readingsService.getById(parseInt(id));
+  // }
 
   @Post()
   addUser(@Body() body: CreateUserDto) {
