@@ -30,11 +30,11 @@ export class UsersController {
     return this.usersService.add(body.firstName, body.lastName, body.isActive);
   }
 
-  @Delete('/:id')
-  @HttpCode(204)
-  removeReading(@Param('id') id: string) {
-    this.readingsService.remove(+id);
-  }
+  // @Delete('/:id')
+  // @HttpCode(204)
+  // removeReading(@Param('id') id: string) {
+  //   this.readingsService.remove(+id);
+  // }
 
   @Patch('/:id')
   editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
