@@ -36,8 +36,8 @@ export class UsersController {
   //   this.readingsService.remove(+id);
   // }
 
-  @Patch('/:id')
-  editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
-    return this.readingsService.edit(+id, body.price);
-  }
+  // @Patch('/:id')
+  // editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
+  //   return this.readingsService.edit(+id, body.price)
+  // }
 }
