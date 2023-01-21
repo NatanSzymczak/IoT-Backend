@@ -10,4 +10,12 @@ export class UsersService {
   getAll() {
     return this.repo.find();
   }
+
+  getById(id: number) {
+    return this.repo.findOne({
+      where: {
+        id: id,
+      },
+    });
+  }
 }
