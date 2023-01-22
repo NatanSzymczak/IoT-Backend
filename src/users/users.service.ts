@@ -18,4 +18,9 @@ export class UsersService {
       },
     });
   }
+
+  async remove(id: number) {
+    const product = await this.repo.findOne(id);
+    this.repo.remove(product);
+  }
 }
