@@ -23,4 +23,10 @@ export class UsersService {
     const product = await this.repo.findOne(id);
     this.repo.remove(product);
   }
+
+  async edit(id: number, price: number) {
+    const product = await this.repo.findOne(id);
+    product.price = price;
+    return this.repo.save(product);
+  }
 }
