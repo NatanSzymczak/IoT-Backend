@@ -24,6 +24,12 @@ export class UsersService {
     this.repo.remove(product);
   }
 
+
+  async add(firstName: string, lastName: string, isActive: boolean) {
+    const newReading = new User();
+    await this.repo.save(newReading);
+  }
+
   async edit(id: number, price: number) {
     const product = await this.repo.findOne(id);
     product.price = price;
