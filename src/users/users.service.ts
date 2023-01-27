@@ -27,6 +27,9 @@ export class UsersService {
 
   async add(firstName: string, lastName: string, isActive: boolean) {
     const newReading = new User();
+    newReading.firstName = firstName;
+    newReading.lastName = lastName;
+    newReading.isActive = isActive;
     await this.repo.save(newReading);
   }
 
