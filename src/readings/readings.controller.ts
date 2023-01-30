@@ -20,10 +20,10 @@ export class ReadingsController {
     return this.readingsService.getAll();
   }
 
-  // @Get('/:id')
-  // getReading(@Param('id') id: string) {
-  //   return this.readingsService.getById(parseInt(id));
-  // }
+  @Get('/:id')
+  getReading(@Param('id') id: string) {
+    return this.readingsService.getById(parseInt(id));
+  }
 
   @Post()
   addReading(@Body() body: CreateReadingDto) {
