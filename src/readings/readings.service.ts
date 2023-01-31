@@ -18,13 +18,13 @@ export class ReadingsService {
     return this.repo.find();
   }
 
-  // getById(id: number) {
-  //   return this.repo.findOne({
-  //     where: {
-  //       id: id,
-  //     },
-  //   });
-  // }
+  getById(id: number) {
+    return this.repo.findOne({
+      where: {
+        id: id,
+      },
+    });
+  }
 
   async add(
     timestamp: string,
