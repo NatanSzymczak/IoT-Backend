@@ -15,7 +15,7 @@ import { UsersModule } from './users/users.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
-      port: 5432,
+      port: +process.env.DB_PORT,
       username: 'postgres',
       password: 'admin',
       database: 'postgres',
