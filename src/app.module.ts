@@ -16,7 +16,7 @@ import { UsersModule } from './users/users.module';
       type: 'postgres',
       host: process.env.DB_HOST,
       port: +process.env.DB_PORT,
-      username: 'postgres',
+      username: process.env.DB_USERNAME,
       password: 'admin',
       database: 'postgres',
       entities: ['**/*.entity.js'],
