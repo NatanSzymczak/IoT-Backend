@@ -84,11 +84,16 @@ export class ReadingsService {
     await setInterval(simulator, 5000);
   }
 
-  // async edit(id: number, price: number) {
-  //   const product = await this.repo.findOne(id);
-  //   product.price = price;
-  //   return this.repo.save(product);
-  // }
+  async edit(id: number, body: any) {
+    const product = await this.repo.findOne({ where: { id } });
+    console.log('body: ', body);
+    body.temperature && (product.temperature = body.temperature);
+    body.pressure && (product.pressure = body.pressure);
+    body.flow && (product.flow = body.flow);
+    body.pH && (product.pH = body.pH);
+    await this.repo.save(product);
+    return product;
+  }
 
   // async remove(id: number) {
   //   const product = await this.repo.findOne(id);
