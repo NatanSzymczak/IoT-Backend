@@ -40,6 +40,7 @@ export class ReadingsService {
     newReading.flow = flow;
     newReading.pH = pH;
     await this.repo.save(newReading);
+    return newReading;
   }
 
   async generator() {
