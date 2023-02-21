@@ -96,8 +96,8 @@ export class ReadingsService {
     return product;
   }
 
-  // async remove(id: number) {
-  //   const product = await this.repo.findOne(id);
-  //   this.repo.remove(product);
-  // }
+  async remove(id: number) {
+    const product = await this.repo.findOne(id);
+    this.repo.remove(product);
+  }
 }
