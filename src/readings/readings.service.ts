@@ -97,7 +97,7 @@ export class ReadingsService {
   }
 
   async remove(id: number) {
-    const product = await this.repo.findOne(id);
-    this.repo.remove(product);
+    const product = await this.repo.findOne({ where: { id } });
+    await this.repo.remove(product);
   }
 }
