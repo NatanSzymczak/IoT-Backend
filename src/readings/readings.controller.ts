@@ -28,7 +28,6 @@ export class ReadingsController {
   @Post()
   addReading(@Body() body: CreateReadingDto) {
     return this.readingsService.add(
-      body.timestamp,
       body.temperature,
       body.pressure,
       body.flow,
@@ -36,12 +35,12 @@ export class ReadingsController {
     );
   }
 
-  @Get('/generator')
+  @Get('run/generator')
   generateReadings() {
     return this.readingsService.generator();
   }
 
-  @Get('/simulator')
+  @Get('run/simulator')
   deviceSimulator() {
     return this.readingsService.deviceSimulatorUser5Id();
   }
