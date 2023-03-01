@@ -35,6 +35,11 @@ export class ReadingsController {
     );
   }
 
+  @Patch('/:id')
+  editProduct(@Body() body: CreateReadingDto, @Param('id') id: string) {
+    return this.readingsService.edit(+id, body);
+  }
+
   @Get('run/generator')
   generateReadings() {
     return this.readingsService.generator();
@@ -49,10 +54,5 @@ export class ReadingsController {
   @HttpCode(204)
   removeReading(@Param('id') id: string) {
     this.readingsService.remove(+id);
-  }
-
-  @Patch('/:id')
-  editProduct(@Body() body: CreateReadingDto, @Param('id') id: string) {
-    return this.readingsService.edit(+id, body);
   }
 }
