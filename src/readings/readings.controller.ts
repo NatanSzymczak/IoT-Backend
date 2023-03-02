@@ -40,6 +40,12 @@ export class ReadingsController {
     return this.readingsService.edit(+id, body);
   }
 
+  @Delete('/:id')
+  @HttpCode(204)
+  removeReading(@Param('id') id: string) {
+    this.readingsService.remove(+id);
+  }
+
   @Get('run/generator')
   generateReadings() {
     return this.readingsService.generator();
@@ -48,11 +54,5 @@ export class ReadingsController {
   @Get('run/simulator')
   deviceSimulator() {
     return this.readingsService.deviceSimulatorUser5Id();
-  }
-
-  @Delete('/:id')
-  @HttpCode(204)
-  removeReading(@Param('id') id: string) {
-    this.readingsService.remove(+id);
   }
 }
