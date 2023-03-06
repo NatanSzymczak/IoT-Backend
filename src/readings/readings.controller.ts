@@ -16,12 +16,12 @@ export class ReadingsController {
   constructor(private readingsService: ReadingsService) {}
 
   @Get()
-  getReadings() {
+  getAllReadings() {
     return this.readingsService.getAll();
   }
 
   @Get('/:id')
-  getReading(@Param('id') id: string) {
+  getReadingById(@Param('id') id: string) {
     return this.readingsService.getById(parseInt(id));
   }
 
