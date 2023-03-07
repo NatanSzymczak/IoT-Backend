@@ -4,10 +4,13 @@ import { User } from 'src/users/users.entity';
 import { Repository } from 'typeorm';
 import { Reading } from './readings.entity';
 
-const hourGenerator = (i) => {
-  const hour = i.toString();
-  hour.length === 1 ? '0'.concat(hour) : hour;
-  return hour;
+const randomValueGenerator = () => {
+  const newReading = new Reading();
+  newReading.temperature = Math.round(Math.random() * (55 - 45) + 45);
+  newReading.pressure = Math.round(Math.random() * (55 - 45) + 45);
+  newReading.flow = Math.round(Math.random() * (65 - 55) + 55);
+  newReading.pH = +(Math.random() * (7.4 - 6.6) + 6.6).toFixed(1);
+  return newReading;
 };
 
 @Injectable()
