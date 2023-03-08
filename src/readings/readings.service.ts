@@ -29,15 +29,8 @@ export class ReadingsService {
     });
   }
 
-  async add(
-    timestamp: string,
-    temperature: number,
-    pressure: number,
-    flow: number,
-    pH: number,
-  ) {
+  async add(temperature: number, pressure: number, flow: number, pH: number) {
     const newReading = new Reading();
-    // newReading.timestamp = timestamp;
     newReading.temperature = temperature;
     newReading.pressure = pressure;
     newReading.flow = flow;
