@@ -39,6 +39,16 @@ export class ReadingsService {
     return newReading;
   }
 
+  async edit(id: number, body: any) {
+    const reading = await this.repo.findOne({ where: { id } });
+    body.temperature && (reading.temperature = body.temperature);
+    body.pressure && (reading.pressure = body.pressure);
+    body.flow && (reading.flow = body.flow);
+    body.pH && (reading.pH = body.pH);
+    await this.repo.save(reading);
+    return reading;
+  }
+
   async generator() {
     const allDayReadings = [];
 
@@ -79,17 +89,6 @@ export class ReadingsService {
       this.repo.save(newReading);
     };
     await setInterval(simulator, 5000);
-  }
-
-  async edit(id: number, body: any) {
-    const product = await this.repo.findOne({ where: { id } });
-    console.log('body: ', body);
-    body.temperature && (product.temperature = body.temperature);
-    body.pressure && (product.pressure = body.pressure);
-    body.flow && (product.flow = body.flow);
-    body.pH && (product.pH = body.pH);
-    await this.repo.save(product);
-    return product;
   }
 
   async remove(id: number) {
