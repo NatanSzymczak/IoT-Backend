@@ -49,6 +49,11 @@ export class ReadingsService {
     return reading;
   }
 
+  async remove(id: number) {
+    const reading = await this.repo.findOne({ where: { id } });
+    await this.repo.remove(reading);
+  }
+
   async generator() {
     const allDayReadings = [];
 
@@ -89,10 +94,5 @@ export class ReadingsService {
       this.repo.save(newReading);
     };
     await setInterval(simulator, 5000);
-  }
-
-  async remove(id: number) {
-    const product = await this.repo.findOne({ where: { id } });
-    await this.repo.remove(product);
   }
 }
