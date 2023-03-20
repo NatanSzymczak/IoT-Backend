@@ -62,15 +62,8 @@ export class ReadingsService {
       user.id = i;
 
       for (let i = 0; i < 24; i++) {
-        const newReading = new Reading();
+        const newReading = randomValueGenerator();
         newReading.user = user;
-        const oneDayInMilliseconds = 1000 * 60 * 60 * 24;
-        // newReading.timestamp = `2020-12-01 ${i < 10 ? `0${i}` : `${i}`}:30:00`;
-        // newReading.timestamp = `01/12/2022 ${i < 10 ? `0${i}` : `${i}`}:30:00`;
-        newReading.temperature = Math.round(Math.random() * (55 - 45) + 45);
-        newReading.pressure = Math.round(Math.random() * (55 - 45) + 45);
-        newReading.flow = Math.round(Math.random() * (65 - 55) + 55);
-        newReading.pH = +(Math.random() * (7.4 - 6.6) + 6.6).toFixed(1);
         allDayReadings.push(newReading);
       }
     }
