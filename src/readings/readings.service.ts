@@ -71,19 +71,11 @@ export class ReadingsService {
   }
 
   async deviceSimulatorUser5Id() {
-    let hour = 0;
     const simulator = () => {
       const user = new User();
-      user.id = 2;
-      const newReading = new Reading();
+      user.id = 4;
+      const newReading = randomValueGenerator();
       newReading.user = user;
-      // newReading.timestamp = `01/12/2022 ${hour < 10 ? `0${hour}` : `${hour}`}:30:00`;
-      newReading.temperature = Math.round(Math.random() * (55 - 45) + 45);
-      newReading.pressure = Math.round(Math.random() * (55 - 45) + 45);
-      newReading.flow = Math.round(Math.random() * (65 - 55) + 55);
-      newReading.pH = +(Math.random() * (7.4 - 6.6) + 6.6).toFixed(1);
-      hour++;
-      console.log(hour);
       this.repo.save(newReading);
     };
     await setInterval(simulator, 5000);
