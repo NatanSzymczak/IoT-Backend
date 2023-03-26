@@ -25,7 +25,7 @@ export class UsersController {
     return this.usersService.getById(parseInt(id));
   }
 
-  @Post()
+  @Post('/')
   addUser(@Body() body: CreateUserDto) {
     return this.usersService.add(body.firstName, body.lastName, body.isActive);
   }
