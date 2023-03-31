@@ -35,8 +35,9 @@ export class UsersController {
     return this.usersService.edit(+id, body);
   }
 
-  // @Patch('/:id')
-  // editProduct(@Body() body: EditProductDto, @Param('id') id: string) {
-  //   return this.readingsService.edit(+id, body.price)
-  // }
+  @Delete('/:id')
+  @HttpCode(204)
+  removeReading(@Param('id') id: string) {
+    this.usersService.remove(+id);
+  }
 }
