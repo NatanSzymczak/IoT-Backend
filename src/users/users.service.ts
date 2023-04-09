@@ -11,13 +11,13 @@ export class UsersService {
     return this.repo.find();
   }
 
-  // getById(id: number) {
-  //   return this.repo.findOne({
-  //     where: {
-  //       id: id,
-  //     },
-  //   });
-  // }
+  getById(id: number) {
+    return this.repo.findOne({
+      where: {
+        id: id,
+      },
+    });
+  }
 
   // async remove(id: number) {
   //   const product = await this.repo.findOne(id);
