@@ -19,12 +19,6 @@ export class UsersService {
     });
   }
 
-  // async remove(id: number) {
-  //   const product = await this.repo.findOne(id);
-  //   this.repo.remove(product);
-  // }
-
-
   async add(firstName: string, lastName: string, isActive: boolean) {
     const newReading = new User();
     newReading.firstName = firstName;
