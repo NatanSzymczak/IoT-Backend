@@ -20,11 +20,12 @@ export class UsersService {
   }
 
   async add(firstName: string, lastName: string, isActive: boolean) {
-    const newReading = new User();
-    newReading.firstName = firstName;
-    newReading.lastName = lastName;
-    newReading.isActive = isActive;
-    await this.repo.save(newReading);
+    const newUser = new User();
+    newUser.firstName = firstName;
+    newUser.lastName = lastName;
+    newUser.isActive = isActive;
+    await this.repo.save(newUser);
+    return newUser;
   }
 
   async remove(id: number) {
