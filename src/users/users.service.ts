@@ -28,6 +28,15 @@ export class UsersService {
     return newUser;
   }
 
+  async edit(id: number, body: any) {
+    const user = await this.repo.findOne({ where: { id } });
+    body.firstName && (user.firstName = body.firstName);
+    body.lastName && (user.lastName = body.lastName);
+    user.isActive = body.isActive;
+    await this.repo.save(user);
+    return user;
+  }
+
   async remove(id: number) {
     const user = await this.repo.findOne({ where: { id } });
     await this.repo.remove(user);
